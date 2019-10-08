@@ -15,5 +15,8 @@ export default {
   },
   getEvent(id) {
     return apiClinet.get('/events/' + id)
+  },
+  postEvent(event) {
+    return apiClinet.post('/events', event)
   }
 }
