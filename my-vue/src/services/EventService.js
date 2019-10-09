@@ -10,8 +10,8 @@ const apiClinet = axios.create({
 })
 
 export default {
-  getEvents() {
-    return apiClinet.get('/events')
+  getEvents(perPage, page) {
+    return apiClinet.get('/events?_limit=' + perPage + '&_page=' + page)
   },
   getEvent(id) {
     return apiClinet.get('/events/' + id)
