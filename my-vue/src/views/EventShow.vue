@@ -25,18 +25,13 @@
 
 <script>
 import { mapState } from 'vuex'
-import store from "@/store/store.js";
-import NProgress from 'nprogress'
 
 export default {
-  props: ['id'],
-  beforeRouteEnter(routeTo, routeFrom, next) {
-    NProgress.start()
-    store.dispatch('event/fetchEventById', routeTo.params.id).then(() => {
-      NProgress.done()
-      next()
-    })
-    
+  props: {
+    event: {
+      type: Object,
+      required: true
+    }
   },
   computed: mapState({
     event: state => state.event.event
