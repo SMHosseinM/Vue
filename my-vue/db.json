@@ -375,6 +375,24 @@
       "data": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 5767941,
+      "user": {
+        "id": "abc123",
+        "name": "Hossein"
+      },
+      "category": "animal welfare",
+      "organizer": {
+        "id": "abc123",
+        "name": "Hossein"
+      },
+      "title": "",
+      "description": "",
+      "location": "",
+      "data": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }

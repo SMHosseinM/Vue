@@ -14,7 +14,8 @@ const router = new Router({
     {
       path: '/',
       name: 'event-list',
-      component: EventList
+      component: EventList,
+      props: true
     },
     {
       path: '/event/:id',
@@ -43,6 +44,26 @@ router.beforeEach((routerTo, routeFrom, next) => {
   next()
 })
 
+router.beforeResolve((routerTo, routerFrom, next) => {
+  if (routerTo.name === 'event-list') {
+    const currentPage = parseInt(routerTo.query.page) || 1
+
+    store
+      .dispatch('event/fetchEvents', {
+        page: currentPage
+      })
+      .then(events => {
+        routerTo.query.page = currentPage
+        routerTo.params.events = events
+        routerTo.params.page = currentPage
+        next()
+      })
+  } else {
+    next()
+  }
+})
+
+// eslint-disable-next-line no-unused-vars
 router.afterEach((routerTo, routerFrom) => {
   NProgress.done()
 })
