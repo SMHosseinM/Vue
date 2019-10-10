@@ -1,5 +1,5 @@
 import axios from 'axios'
-import NProgress from 'nprogress'
+// import NProgress from 'nprogress'
 
 const apiClinet = axios.create({
   baseURL: 'http://localhost:3000',
@@ -10,15 +10,15 @@ const apiClinet = axios.create({
   }
 })
 
-apiClinet.interceptors.request.use(config => {
-  NProgress.start()
-  return config
-})
+// apiClinet.interceptors.request.use(config => {
+//   NProgress.start()
+//   return config
+// })
 
-apiClinet.interceptors.response.use(response => {
-  NProgress.done()
-  return response
-})
+// apiClinet.interceptors.response.use(response => {
+//   NProgress.done()
+//   return response
+// })
 
 export default {
   getEvents(perPage, page) {
