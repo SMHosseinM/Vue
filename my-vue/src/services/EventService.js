@@ -7,7 +7,8 @@ const apiClinet = axios.create({
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json'
-  }
+  },
+  timeout: 10000
 })
 
 // apiClinet.interceptors.request.use(config => {
