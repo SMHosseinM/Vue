@@ -1,7 +1,12 @@
 <template>
   <div>
     <label v-if="label">{{ label }}</label>
-    <select :value="value" @input="updateValue" v-bind="$attrs">
+    <select
+      :value="value"
+      @input="updateValue"
+      v-bind="$attrs"
+      v-on="$listeners"
+    >
       <option v-for="option in options" :key="option">{{ option }}</option>
     </select>
   </div>
@@ -17,7 +22,7 @@ export default {
     },
     options: {
       type: Array,
-      default: []
+      required: true
     },
     value: [String, Number]
   },
@@ -29,10 +34,9 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
 
- <label>Select a time</label>
-        <select v-model="event.time">
+<label>Select a time</label>
+<select v-model="event.time">
           <option v-for="time in times" :key="time">{{ time }}</option>
         </select>
